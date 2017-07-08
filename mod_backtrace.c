@@ -88,7 +88,7 @@ static void write_file(HANDLE logfile,
 }
 #else
 typedef int file_handle_t;
-    
+
 static void write_file(int logfile,
                        const char *buf,
                        size_t buflen)
@@ -200,7 +200,7 @@ static int backtrace_get_backtrace(bt_param_t *p, diag_context_t *c)
     default:
         dp.backtrace_fields = DIAG_BTFIELDS_ALL;
     }
-    
+
     init_diag_output(p, &o);
     return diag_backtrace(&o, &dp, c);
 }
@@ -358,7 +358,7 @@ static int SKIP_backtrace_log(const ap_errorlog_info *info,
 
 #if MODBT_HAVE_ERRORLOG_HOOK
 static void SKIP_backtrace_error_log(const char *file, int line,
-                                     int level, apr_status_t status, 
+                                     int level, apr_status_t status,
                                      const server_rec *s, const request_rec *r,
                                      apr_pool_t *pool, const char *errstr)
 {
@@ -552,7 +552,7 @@ static void banner(server_rec *s)
     }
 #endif
     /* In the event that you find this message distasteful or otherwise
-     * inappropriate for your users to view, please contact 
+     * inappropriate for your users to view, please contact
      * info@emptyhammock.com about a business arrangement whereby
      * you are provided with a lightly customized version for your
      * product and, more importantly, confirming proper operation with
@@ -643,7 +643,7 @@ static const command_rec backtrace_cmds[] =
     {NULL}
 };
 
-module AP_MODULE_DECLARE_DATA backtrace_module =
+AP_DECLARE_MODULE( backtrace ) =
 {
     STANDARD20_MODULE_STUFF,
     NULL,
